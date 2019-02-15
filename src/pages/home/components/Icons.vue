@@ -1,6 +1,6 @@
 <template>
 	<div class="icons">
-		<swiper >
+		<swiper :options="swiperOption">
 			<swiper-slide v-for="it of pages">
 				<div class="icon"  v-for="item of it" :key="item.id">
 					<div class="icon-img">
@@ -17,47 +17,57 @@
 <script>
 export default {
 	name: "HomeIcons",
+	props: {
+		iconList: Array
+	},
 	data() {
 		return {
-			iconList: [{
-				id: '0001',
-				imgUrl: 'https://f-flightfe-portalcp.qunarzz.com/f_flightfe_portal_f_flightfe_portal/2018/1542193299396_6857743.png',
-				desc: '日游'
-			}, {
-				id: '0002',
-				imgUrl: 'https://imgs.qunarzz.com/vc/34/0e/c6/3a293edbd46f9b89551dce5fb9.png_92.png',
-				desc: '门票'
-			}, {
-				id: '0003',
-				imgUrl: 'https://imgs.qunarzz.com/vc/9d/ce/9b/c75d54479549f0622cedee0127.png_92.png',
-				desc: '玩乐'
-			}, {
-				id: '0004',
-				imgUrl: 'https://f-flightfe-portalcp.qunarzz.com/f_flightfe_portal_f_flightfe_portal/2018/1542193606963_7865647.png',
-				desc: '签证'
-			}, {
-				id: '0005',
-				imgUrl: 'https://imgs.qunarzz.com/vc/93/24/e0/a21a64cc7373793c1216edbdbd.png_92.png',
-				desc: 'Wi-Fi'
-			}, {
-				id: '0006',
-				imgUrl: 'https://imgs.qunarzz.com/vc/5a/18/c3/cf829c365c2c17253153bff86c.png_92.png',
-				desc: '包车'
-			}, {
-				id: '0007',
-				imgUrl: 'https://imgs.qunarzz.com/vc/44/45/8f/35cbaf8962c786da3c9e3d25c1.png_92.png',
-				desc: '接送机'
-			}, {
-				id: '0008',
-				imgUrl: 'https://f-flightfe-portalcp.qunarzz.com/f_flightfe_portal_f_flightfe_portal/2018/1542193826942_8473249.png',
-				desc: '更多'
-			}, {
-				id: '0009',
-				imgUrl: 'https://f-flightfe-portalcp.qunarzz.com/f_flightfe_portal_f_flightfe_portal/2018/1542193826942_8473249.png',
-				desc: '更多'
-			}]
+			swiperOption: {
+				autoplay: false
+			}
 		}
 	},
+	// data() {
+	// 	return {
+	// 		iconList: [{
+	// 			id: '0001',
+	// 			imgUrl: 'https://f-flightfe-portalcp.qunarzz.com/f_flightfe_portal_f_flightfe_portal/2018/1542193299396_6857743.png',
+	// 			desc: '日游'
+	// 		}, {
+	// 			id: '0002',
+	// 			imgUrl: 'https://imgs.qunarzz.com/vc/34/0e/c6/3a293edbd46f9b89551dce5fb9.png_92.png',
+	// 			desc: '门票'
+	// 		}, {
+	// 			id: '0003',
+	// 			imgUrl: 'https://imgs.qunarzz.com/vc/9d/ce/9b/c75d54479549f0622cedee0127.png_92.png',
+	// 			desc: '玩乐'
+	// 		}, {
+	// 			id: '0004',
+	// 			imgUrl: 'https://f-flightfe-portalcp.qunarzz.com/f_flightfe_portal_f_flightfe_portal/2018/1542193606963_7865647.png',
+	// 			desc: '签证'
+	// 		}, {
+	// 			id: '0005',
+	// 			imgUrl: 'https://imgs.qunarzz.com/vc/93/24/e0/a21a64cc7373793c1216edbdbd.png_92.png',
+	// 			desc: 'Wi-Fi'
+	// 		}, {
+	// 			id: '0006',
+	// 			imgUrl: 'https://imgs.qunarzz.com/vc/5a/18/c3/cf829c365c2c17253153bff86c.png_92.png',
+	// 			desc: '包车'
+	// 		}, {
+	// 			id: '0007',
+	// 			imgUrl: 'https://imgs.qunarzz.com/vc/44/45/8f/35cbaf8962c786da3c9e3d25c1.png_92.png',
+	// 			desc: '接送机'
+	// 		}, {
+	// 			id: '0008',
+	// 			imgUrl: 'https://f-flightfe-portalcp.qunarzz.com/f_flightfe_portal_f_flightfe_portal/2018/1542193826942_8473249.png',
+	// 			desc: '更多'
+	// 		}, {
+	// 			id: '0009',
+	// 			imgUrl: 'https://f-flightfe-portalcp.qunarzz.com/f_flightfe_portal_f_flightfe_portal/2018/1542193826942_8473249.png',
+	// 			desc: '更多'
+	// 		}]
+	// 	}
+	// },
 	computed: {
 		pages () {
 			const pages = []
