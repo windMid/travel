@@ -2,8 +2,8 @@
 	<div>
 		<CityHeader></CityHeader>
 		<CitySearch></CitySearch>
-		<CityList :hotcity="hotcity" :cities="cities"></CityList>
-		<CityAlphabet :cities="cities"></CityAlphabet>
+		<CityList :hotcity="hotcity" :cities="cities" :letter="letter"></CityList>
+		<CityAlphabet :cities="cities" @change="handleLetterChange"></CityAlphabet>
 		<router-view/>
 	</div>
 
@@ -36,12 +36,17 @@ export default {
 				this.hotcity = res.data.hotCities
 				this.cities  = res.data.cities
 				// console.log(this.hotcity) 
+		},
+		handleLetterChange(letter) {
+			// console.log(letter)
+			this.letter = letter
 		}
 	},
 	data() {
 		return {
 			hotcity: [],
 			cities: {},
+			letter: ''
 		}
 	}
 }
