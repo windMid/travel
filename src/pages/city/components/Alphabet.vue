@@ -82,10 +82,12 @@ export default {
 		right: 0
 		bottom: 0
 		width: .4rem
+		color: $bgColor
+		text-align: center
 		// background-color: red
 		.item
 			font-size: .3rem
-			text-align: center
+			
 			line-height: .4rem
-			color: $bgColor
+			
 </style>

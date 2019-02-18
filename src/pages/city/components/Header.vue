@@ -1,7 +1,7 @@
 <template>
 	<div class="header">
 		城市选择
-		<router-link to="/">
+		<router-link to="/" class="aaa">
 			<div class="iconfont back-icon">&#xe624;</div>
 		</router-link>
 	</div>
@@ -24,8 +24,8 @@ export default {
 		text-align: center
 		background-color: $bgColor
 		font-size: .32rem
-		a
-			position: absolute
+		.aaa
+			position: fixed
 			top: 0
 			left: 0
 			.back-icon

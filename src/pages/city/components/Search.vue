@@ -1,12 +1,12 @@
 <template>
-	<div>
+	<div class="sear">
 		<div class="search">
 			<input v-model="keyword" class="search-input" type="text" placeholder="输入城市名或拼音">
 		</div>
-		<div class="search-content" ref="wrapper" v-show="keyword">
+		<div class="search-content" ref="wrapper"  v-show="keyword">
 			<ul>
-				<li v-for="item of list" class="search-line">{{item.name}}</li>
-				<li class="search-line" v-show="!list.length">没有找到匹配数据</li>
+				<li v-for="item of list" class="search-line" @click="handleCityClick(item.name)">{{item.name}}</li>
+				<li class="search-line" v-if="hasnodata">没有找到匹配数据</li>
 			</ul>
 		</div>
 	</div>
@@ -24,6 +24,11 @@ export default {
 			keyword: '',
 			list: [],
 			timer: null
+		}
+	},
+	computed: {
+		hasnodata() {
+			return !this.list.length;
 		}
 	},
 	watch: {
@@ -45,7 +50,14 @@ export default {
 		}
 	},
 	mounted() {
-		this.scroll = new Bscroll(this.$refs.wrapper)
+		this.scroll = new Bscroll(this.$refs.wrapper, {click: true})
+	},
+	methods: {
+		handleCityClick(city) {
+			this.$store.dispatch('changeCity', city)
+			this.keyword = ''
+			this.$router.push('/')
+		}
 	}
 }
 </script>
@@ -56,7 +68,7 @@ export default {
 		background-color: $bgColor
 		height: .72rem
 		// padding: 0 .1rem
-		position: relative
+
 		.search-input
 			font-size: .4rem
 			width: 96%

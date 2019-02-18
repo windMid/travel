@@ -1,5 +1,5 @@
 <template>
-	<div>
+	<div class="city">
 		<CityHeader></CityHeader>
 		<CitySearch :cities="cities"></CitySearch>
 		<CityList :hotcity="hotcity" :cities="cities" :letter="letter"></CityList>
@@ -53,5 +53,4 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
-	
 </style>
